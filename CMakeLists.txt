@@ -42,3 +42,7 @@ install(TARGETS LiveCamTester
 )
 
 qt_finalize_executable(LiveCamTester)
+
+add_custom_target(Other SOURCES
+    VERSION LICENSE README.md
+)
