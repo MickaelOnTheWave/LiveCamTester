@@ -21,10 +21,15 @@ public:
    ~MainWindow();
 
 private slots:
-   void onStartCamera();
-   void onStopCamera();
+   void OnStartCamera();
+   void OnStopCamera();
+   void OnFocusModeChange(int index);
+   void OnFocusDistanceChanged(int value);
 
 private:
+   void setupUiSupportedFeatures();
+   QCamera::FocusMode GetFocusMode(const QString& optionName) const;
+
    Ui::MainWindow *ui;
    QCamera* camera = nullptr;
    QMediaCaptureSession captureSession;
