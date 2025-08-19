@@ -9,23 +9,24 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Multimedia MultimediaWidgets)
-find_package(Qt6 REQUIRED COMPONENTS Widgets Multimedia MultimediaWidgets)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Multimedia)
+find_package(Qt6 REQUIRED COMPONENTS Widgets Multimedia)
 
-find_package( OpenCV REQUIRED )
 find_package( Eigen3 REQUIRED )
 find_package( Iconv REQUIRED )
 
+add_subdirectory(libs)
 
 file(GLOB PROJECT_SOURCES "src/*")
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 qt_add_executable(LiveCamTester
     MANUAL_FINALIZATION
     ${PROJECT_SOURCES}
 )
 
-target_link_libraries(LiveCamTester PRIVATE Qt6::Widgets Qt6::Multimedia Qt6::MultimediaWidgets)
-
+target_link_libraries(LiveCamTester PRIVATE Qt6::Widgets Qt6::Multimedia ImageProcessingToolsLib)
 set_target_properties(LiveCamTester PROPERTIES
     ${BUNDLE_ID_OPTION}
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}

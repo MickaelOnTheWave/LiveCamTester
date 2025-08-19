@@ -1,0 +1,6 @@
+[submodule "libs/ImageProcessingToolsLib"]
+	path = libs/ImageProcessingToolsLib
+	url = git@github.com:MickaelOnTheWave/ImageProcessingToolsLib.git
+[submodule "libs/BasicToolsLib"]
+	path = libs/BasicToolsLib
+	url = git@github.com:MickaelOnTheWave/BasicToolsLib.git
